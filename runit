@@ -1,0 +1,31 @@
+#!/bin/bash
+
+function usage() {
+ Usage: runit [-c] [-f procfile|Procfile] [-e envfile|.env]
+}
+
+function verify() {
+ bash runit -f test/fixtures/procfile_with_comments
+}
+
+function log() {
+ bash runit -f test/fixtures/procfile_with_port_number
+}
+
+function run_command() {
+ bash runit -f test/fixtures/procfile_with_port_number
+}
+
+function load_env_file() {
+ bash runit -f test/fixtures/procfile_with_env
+}
+
+function run_procfile() {
+ bash runit -f test/fixtures/simple_procfile
+}
+
+function main() {
+ bash runit -c -f test/fixtures/invalid_procfile -e test/fixtures/simple_env_file
+}
+
+main "$@"
